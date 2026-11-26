@@ -1,5 +1,14 @@
+# environments
 .venv/
+__pycache__/
+*.pyc
+.DS_Store
+
+# large generated data (anyone can rebuild with: python data/prepare.py --near-dedup)
 data/*.npy
 data/test_files.jsonl
+
+# training outputs (weights go to the Hugging Face Hub, not GitHub)
 checkpoints/
-__pycache__/
+wandb/
+*.pt

@@ -1,0 +1,24 @@
+{
+  "raw_files": 61373,
+  "after_filter": 59656,
+  "after_exact_dedup": 59655,
+  "after_near_dedup": 58994,
+  "train_files": 53172,
+  "train_repos": 35970,
+  "val_files": 2963,
+  "val_repos": 2038,
+  "test_files": 2859,
+  "test_repos": 1920,
+  "train_tokens": 4999936,
+  "control_tokens": 4999936,
+  "val_tokens": 6235136,
+  "vocab": 8000,
+  "special_ids": {
+    "<PAD>": 0,
+    "<EOS>": 1,
+    "<MASK>": 2,
+    "<PRE>": 3,
+    "<SUF>": 4,
+    "<MID>": 5
+  }
+}

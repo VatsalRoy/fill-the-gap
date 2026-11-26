@@ -1,0 +1,5 @@
+.venv/
+data/*.npy
+data/test_files.jsonl
+checkpoints/
+__pycache__/

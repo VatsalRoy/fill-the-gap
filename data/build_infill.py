@@ -16,11 +16,13 @@ at the seams, e.g. a newline split from its indentation, which unfairly hurts mo
 
 Usage:  python data/build_infill.py            -> data/infill_test.jsonl
 """
-import argparse, ast, hashlib, json, os, random, re, textwrap
+import argparse, ast, hashlib, json, os, random, re, textwrap, warnings
 from collections import Counter, defaultdict
 from tokenizers import Tokenizer
 
 OUT = os.path.dirname(os.path.abspath(__file__))
+# Old Python-2-era files trigger harmless "invalid escape sequence" warnings when parsed.
+warnings.filterwarnings("ignore", category=SyntaxWarning)
 LIMITS = {"line": (2, 40), "block": (6, 80), "expr": (2, 30)}   # middle length in tokens
 
 
@@ -194,7 +196,7 @@ def main():
         if items[k]:
             it = items[k][0]
             print(f"\n===== example [{k}] {it['func']}  (from {it['repo']})")
-            print(it["prefix"] + "\033[41m" + it["middle"] + "\033[0m" + it["suffix"])
+            print(it["prefix"] + "⟦" + it["middle"] + "⟧" + it["suffix"])
 
 
 if __name__ == "__main__":
